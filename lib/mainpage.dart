@@ -12,6 +12,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  int currentpage = 1;
   final List<String> filters = const [
     'All',
     'Addidas',
@@ -123,6 +124,19 @@ class _MainPageState extends State<MainPage> {
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: currentpage,
+          onTap: (value) {
+            setState(() {
+              currentpage = value;
+            });
+          },
+          selectedItemColor: Colors.yellow,
+          backgroundColor: Colors.white,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: ''),
+          ]),
     );
   }
 }
